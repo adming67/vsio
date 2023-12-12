@@ -1,0 +1,24 @@
+sudo snap install lxd       (add switch --edge)
+lxc init
+
+ls -lh /var/snap/lxd/common/lxd/disks/default.img
+
+lxc config show
+lxc config edit
+
+lxc list
+
+lxc image list images:mint  (List all mint images availabe online)
+
+lxc launch images:ubuntu/23.04 u01 --vm  (vm is created)
+lxc launch images:ubuntu/23.04 u02       (container is created)
+
+lxc exec u01 -- bash        (Get a bash console)
+
+lxc console u01
+lxc start u01
+lxc stop u01
+lsc delete u01              (To delete without prompt use --force)
+
+lxc network forward create lxdbr0 <listenip> 
+lxc network forward port add <listenip> tcp 32450 <vm-ip> 80

@@ -1,0 +1,30 @@
+https://zomro.com/blog/faq/282-kak-ustanovit-socks5-v-docker
+
+version: "3"
+
+services:
+  socks:
+    image: olebedev/socks5:latest
+    container_name: socks
+    hostname: socks
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Asia/Karachi
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1"
+          memory: 200M
+#          pids: 1
+    ports:
+      - 9280:1080
+    restart: unless-stopped
+    networks:
+      vpcbr:
+        ipv4_address: 172.26.1.101
+
+networks:
+  vpcbr:
+    external: true

@@ -1,0 +1,11 @@
+# Turn on swap
+
+$ sudo swapon -a
+
+# Turn off swap
+
+$ sudo swapoff -a
+
+# Show swap status
+
+$ sudo swapon --show
